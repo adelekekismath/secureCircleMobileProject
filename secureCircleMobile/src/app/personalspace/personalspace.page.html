@@ -1,0 +1,57 @@
+<ion-content class="ion-padding">
+  <div class="container">
+    <div class="header">
+      <div class="welcome-message" >
+        <h1>Bienvenue</h1>
+        <img src="assets/icon/logo.png" alt="Logo">
+      </div>
+    </div>
+    <div class="subjects">
+      <h2>Mon espace</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" >
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Données du Capteur</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-list>
+                   <ng-container *ngIf="latestSensor != undefined">
+                    <ion-item>
+                      <ion-label>
+                        Latitude: {{latestSensor.latitude ?? 'Non disponible'}}
+                      </ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>
+                        Longitude: {{latestSensor.longitude ?? 'Non disponible'}}
+                      </ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>
+                        Fréquence Cardiaque: {{latestSensor.heartRate !== 0 ? latestSensor.heartRate : 'Non disponible'}}
+                      </ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>
+                        Pas: {{latestSensor.steps ?? 'Non disponible'}}
+                      </ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>
+                        Timestamp: {{latestSensor.timestamp ?? 'Non disponible'}}
+                      </ion-label>
+                    </ion-item>
+                  </ng-container>
+
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>
+  </div>
+</ion-content>
